@@ -85,7 +85,7 @@ machine = TocMachine(
 )
 
 
-@route("/webhook", method="GET")
+@route("webhook", method="GET")
 def setup_webhook():
     mode = request.GET.get("hub.mode")
     token = request.GET.get("hub.verify_token")
@@ -99,7 +99,7 @@ def setup_webhook():
         abort(403)
 
 
-@route("/webhook", method="POST")
+@route("webhook", method="POST")
 def webhook_handler():
     body = request.json
     print('\nFSM STATE: ' + machine.state)
@@ -112,7 +112,7 @@ def webhook_handler():
         return 'OK'
 
 
-@route('/show-fsm', methods=['GET'])
+@route('show-fsm', methods=['GET'])
 def show_fsm():
     machine.get_graph().draw('fsm.png', prog='dot', format='png')
     return static_file('fsm.png', root='./', mimetype='image/png')
