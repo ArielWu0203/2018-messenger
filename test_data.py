@@ -1,5 +1,5 @@
 import sqlite3
-import requests, lxml
+import requests
 from bs4 import BeautifulSoup
 
 website = 'http://www.csie.ncku.edu.tw/ncku_csie/depmember/teacher'
